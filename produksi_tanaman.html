@@ -20,13 +20,13 @@
     body {
         background-color: lightblue;
     }
-
 </style>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-chart-area"></i>Infografis Kabupaten Gianyar Provinsi Bali</a>
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-chart-area"></i>Infografis Kabupaten Gianyar Provinsi
+                Bali</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -43,9 +43,11 @@
                             <i class="fa-solid fa-table"></i> Data
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="index.html">Jumlah Penduduk</a></li>
-                            <li><a class="dropdown-item" href="penduduk_jenis_kelamin.html">Penduduk Menurut Jenis Kelamin</a></li>
-                            <li><a class="dropdown-item" href="jenis_agama.html">Penduduk Menurut Agama yang Dianut</a></li>
+                            <li><a class="dropdown-item" href="index.html">Jumlah Penduduk </a></li>
+                            <li><a class="dropdown-item" href="penduduk_jenis_kelamin.html">Penduduk Menurut Jenis
+                                    Kelamin</a></li>
+                            <li><a class="dropdown-item" href="jenis_agama.html">Penduduk Menurut Agama yang Dianut</a>
+                            </li>
                             <li><a class="dropdown-item" href="produksi_tanaman.html">Produksi Tanaman Perkebunan</a></li>
                             <li><a class="dropdown-item" href="luas_wilayah.html">Luas Wilayah Per-Kecamatan</a></li>
                             <li>
@@ -66,7 +68,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Agama Yang DIanut Kabupaten Gianyar Tahun 2020</h1>
+                <h5>Produksi Tanaman Perkebunan Menurut Jenis Tanaman di Kabupaten Gianyar Tahun 2020</h1>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -106,29 +108,45 @@
 
     <script>
        var options = {
-          series: [520244, 64454, 31397, 3247283, 21156,427],
+          series: [{
+            name: "Jumlah Tanaman (Ton)",
+            data: [3645, 14, 22, 38, 20, 1, 276, 105, 254]
+        }],
           chart: {
-          type: 'donut',
-          width:500
-        },
-        labels : ['Islam','Katholik','Protestan','Hindu','Budha','Konghucu'],
-        responsive: [{
-          breakpoint: 480,
-          options: {
-            chart: {
-              width: 200
-            },
-            legend: {
-              position: 'bottom'
-            }
+          height: 350,
+          type: 'line',
+          zoom: {
+            enabled: false
           }
-        }]
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          curve: 'straight'
+        },
+        grid: {
+          row: {
+            colors: ['#f3f3f3', 'transparent'], // takes an array which will be repeated on columns
+            opacity: 0.5
+          },
+        },
+        xaxis: {
+          categories: ['Kelapa Dalam', 'Kelapa hibrida ', 'Kopi Arabika', 'Kopi Robusta', 'Cengkeh', 'Panili', 'Tembakau Rakyat', 'Kelapa Genjah', 'Kakao'],
+          title: {
+                    text: 'Jenis Tanaman'
+                }
+        },
+        yaxis: {
+                title: {
+                    text: 'Jumlah Tanaman (Ton)'
+                }
+            },
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
     </script>
-
 </body>
 
 </html>

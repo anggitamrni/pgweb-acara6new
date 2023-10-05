@@ -20,13 +20,13 @@
     body {
         background-color: lightblue;
     }
-
 </style>
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><i class="fa-solid fa-chart-area"></i>Infografis Kabupaten Gianyar Provinsi Bali</a>
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-chart-area"></i>Infografis Kabupaten Gianyar Provinsi
+                Bali</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -43,10 +43,13 @@
                             <i class="fa-solid fa-table"></i> Data
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
-                            <li><a class="dropdown-item" href="index.html">Jumlah Penduduk</a></li>
-                            <li><a class="dropdown-item" href="penduduk_jenis_kelamin.html">Penduduk Menurut Jenis Kelamin</a></li>
-                            <li><a class="dropdown-item" href="jenis_agama.html">Penduduk Menurut Agama yang Dianut</a></li>
-                            <li><a class="dropdown-item" href="produksi_tanaman.html">Produksi Tanaman Perkebunan</a></li>
+                            <li><a class="dropdown-item" href="index.html">Jumlah Penduduk </a></li>
+                            <li><a class="dropdown-item" href="penduduk_jenis_kelamin.html">Penduduk Menurut Jenis
+                                    Kelamin</a></li>
+                            <li><a class="dropdown-item" href="jenis_agama.html">Penduduk Menurut Agama yang Dianut</a>
+                            </li>
+                            <li><a class="dropdown-item" href="produksi_tanaman.html">Produksi Tanaman Perkebunan</a>
+                            </li>
                             <li><a class="dropdown-item" href="luas_wilayah.html">Luas Wilayah Per-Kecamatan</a></li>
                             <li>
                                 <hr class="dropdown-divider">
@@ -66,7 +69,7 @@
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h5>Agama Yang DIanut Kabupaten Gianyar Tahun 2020</h1>
+                <h5>Luas Wilayah per Kecamatan di Kabupaten Gianyar (Km2) Tahun 2020</h1>
             </div>
             <div class="card-body">
                 <div id="chart"></div>
@@ -105,30 +108,40 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script>
-       var options = {
-          series: [520244, 64454, 31397, 3247283, 21156,427],
-          chart: {
-          type: 'donut',
-          width:500
-        },
-        labels : ['Islam','Katholik','Protestan','Hindu','Budha','Konghucu'],
-        responsive: [{
-          breakpoint: 480,
-          options: {
+        var options = {
+            series: [{
+                name: 'Luas Wilayah (Km2)',
+                data: [55.02, 39.70, 50.59, 42.63, 42.38, 61.80, 75.88]
+            }, {
+            }],
             chart: {
-              width: 200
+                height: 350,
+                type: 'area'
             },
-            legend: {
-              position: 'bottom'
-            }
-          }
-        }]
+            dataLabels: {
+                enabled: false
+            },
+            stroke: {
+                curve: 'smooth'
+            },
+            xaxis: {
+                type: 'Kecamatan',
+                categories: ["Sukawati", "Blahbatuh", "Gianyar", "Tampaksiring", "Ubud", "Tegallalang", "Payangan"],
+                title: {
+                    text: 'Kecamatan'
+                }
+            },
+            yaxis: {
+                title: {
+                    text: 'Luas Wilayah (Km2)'
+                }
+            },
+            
         };
 
         var chart = new ApexCharts(document.querySelector("#chart"), options);
         chart.render();
     </script>
-
 </body>
 
 </html>
